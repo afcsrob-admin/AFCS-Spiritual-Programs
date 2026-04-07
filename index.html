@@ -764,5 +764,31 @@
     event.target.classList.add('active');
   }
 </script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+
+<script>
+async function loadContent() {
+  try {
+    const res = await fetch('/content/homepage.yml');
+    const text = await res.text();
+    const data = jsyaml.load(text);
+
+    const heroTitle = document.querySelector('.hero h1');
+    const heroVerse = document.querySelector('.hero-verse');
+
+    if (heroTitle && data.hero_title) {
+      heroTitle.innerHTML = data.hero_title;
+    }
+
+    if (heroVerse && data.hero_verse) {
+      heroVerse.innerText = data.hero_verse;
+    }
+  } catch (err) {
+    console.log('CMS load error:', err);
+  }
+}
+
+loadContent();
+</script>
 </body>
 </html>
