@@ -764,8 +764,8 @@
     event.target.classList.add('active');
   }
 </script>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 <script>
 async function loadContent() {
   try {
@@ -779,7 +779,6 @@ async function loadContent() {
     if (heroTitle && data.hero_title) {
       heroTitle.innerHTML = data.hero_title;
     }
-
     if (heroVerse && data.hero_verse) {
       heroVerse.innerText = data.hero_verse;
     }
@@ -787,8 +786,8 @@ async function loadContent() {
     console.log('CMS load error:', err);
   }
 }
-
 loadContent();
 </script>
+
 </body>
 </html>
